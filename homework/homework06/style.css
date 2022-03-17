@@ -1,0 +1,87 @@
+body{
+    background-color: #335C67;
+    color: rgb(0, 0, 0);
+}
+#toc {
+    background-color: #9E2A2B;
+    padding: 2em;
+    margin-bottom: 5px;
+    width: 30em;
+    border: 5px solid #E09F3E;
+    
+}
+
+#culture  {
+    background-color: #E09F3E;
+    padding: 1em;
+    padding-top: 1.5em;
+    border: .5em solid  #9E2A2B;
+    height: 45em;
+
+}
+
+.culture_info{
+    margin: 1em;
+    padding-left: 27em;
+    width: 500px;
+}
+
+
+#history{
+    background-color: #9E2A2B;
+    padding: 1em;
+    border: .5em solid #E09F3E;
+    clear: both;
+}
+
+#economy {
+    background-color:#E09F3E;
+    padding: 1em;
+    border: .5em solid  #9E2A2B;
+}
+
+#antheminfo {
+    background-color: #9E2A2B;
+    padding: 1em;
+    border: .5em solid #E09F3E;
+}
+
+footer {
+    background-color:#E09F3E;
+    padding: 1em;
+    border: .5em solid  #9E2A2B;
+}
+
+hr{
+    color: #540B0E;
+}
+
+#dragon_bridge {
+    float: right;
+    width: 600px;
+    padding: 1px;
+    background-color: #E09F3E;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    border: 5px solid #540B0E;
+}
+
+.sidebar {
+    float: left;
+    width: 400px;
+    padding: 1px;
+    background-color: #9E2A2B;
+    margin-right: 10px;
+    margin-bottom: 1px;
+    border: 5px solid #9E2A2B;
+}
+
+.sidebar_left {
+    float: right;
+    width: 320px;
+    padding: 1px;
+    background-color: #9E2A2B;
+    margin-left: 10px;
+    margin-bottom: 1px; 
+    border: 5px solid #9E2A2B;
+}

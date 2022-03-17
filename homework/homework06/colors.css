@@ -1,0 +1,22 @@
+.red {
+    background-color: #9E2A2B;
+    color: #9E2A2B;
+}
+.gold {
+    background-color: #E09F3E;
+    color: #E09F3E;
+}
+
+.hr {
+    background-color: #540B0E;
+    color: #540B0E;
+}
+
+.body {
+    background-color: #335C67;
+    color: #335C67;
+}
+
+.color_swatch {
+    font-size: 500%;
+}
