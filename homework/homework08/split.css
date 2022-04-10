@@ -1,0 +1,14 @@
+:root {
+    --text: #1A1110;
+    --primaryColor: #dd8d78;
+    --secondaryColor: #ae625f;
+    --background: #544a57;
+    --accent: #26171c;
+    --borderStyle: .5em solid;
+    --hrColor: #26171c;
+    --link: #e0f0f5;
+    --visited: #ffffff;
+    --hover: #dae0e1;
+    --active: #ffffff;
+    --reverseText: #ffffff;
+}
