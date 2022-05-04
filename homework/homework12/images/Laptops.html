@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class=" xgxovlnri idc0_338" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Laptops_files/bootstrap.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Laptops</title>
+    <style>
+      #order {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      function buy(me) {
+        let prices = [
+          {
+            name: "none",
+            price: 0,
+          },
+          {
+            name: "Zephyrus G14",
+            price: 1650.0,
+            display: '14" 120Hz Display 1440x1660',
+            cpu: "Ryzen 9 6000 series",
+            ram: "16GB RAM",
+            Storage: "1TB SSD",
+            graphics: "Radeon RX 6800S",
+          },
+          {
+            name: "Razer Blade 14",
+            price: 1800.0,
+            display: '14" 165Hz Display 1440x1660',
+            cpu: "Ryzen 9 5900HX",
+            ram: "16GB RAM",
+            Storage: "1TB SSD",
+            graphics: "Nvidia RTX 3080",
+          },
+          {
+            name: "MSI GE76 Raider",
+            price: 3400.0,
+            display: '17.3" 360Hz Display 1920x1080',
+            cpu: "Core i9-11980HK",
+            ram: "32GB RAM",
+            Storage: "1TB NVMe SSD",
+            graphics: "Nvidia RTX 3080",
+          },
+        ];
+
+        function showData() {
+          const keyValue = (input) =>
+            Object.entries(input).forEach(([key, value]) => {
+              console.log(key, value);
+            });
+
+          keyValue(prices);
+        }
+
+        let order = document.getElementById("order");
+        order.style.visibility = "visible";
+        //Get the name of the customer
+        let purchaser = document.getElementById("customerName").value;
+        console.log("Purchaser is " + purchaser);
+        //put the name of the customer in the #itemName field of the order
+        let nameLocation = document.getElementById("itemName");
+        nameLocation.innerHTML = purchaser;
+        //Get the option selected
+        let option = document.getElementById("option").value;
+        console.log("Selected " + option);
+        //put the option selected in the #itemBought
+        let itemToBuy = document.getElementById("itemBought");
+        itemToBuy.innerHTML = option;
+        //get the quantity selected
+        let howMany = document.getElementById("howMany").value;
+        console.log(howMany);
+        //put the quantity into the order
+        let manyLocation = document.getElementById("itemQuantity");
+        manyLocation.innerHTML = howMany;
+        //set the price per item
+        let select = document.querySelector("select");
+        let value = select.options[select.selectedIndex].value;
+        let text = select.options[select.selectedIndex].text;
+        let price = prices[select.selectedIndex].price;
+        console.log(value, text, price);
+        //calculate the total cost and put it int the order
+        //calculate the total cost and put it int the order
+        let total = price * howMany;
+        let totalLocation = document.getElementById("totalCost");
+        totalLocation.innerHTML = total;
+      }
+
+      function changePicture(url) {
+        let image = document.getElementById("picture");
+        image.src = url;
+      }
+    </script>
+  </head>
+  <body class="m-3">
+    <h1>Laptops!</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="Laptops_files/main.jpg" id="picture" class="w-100 p1">
+        </div>
+        <div class="col-md-2">
+          <h2>Laptops for Sale</h2>
+          <p>
+            These laptops offer some of the best available hardware in a laptop.
+          </p>
+          <p>Now available starting at only $1650.00</p>
+        </div>
+        <div class="col-md-8"><p>&nbsp;</p></div>
+      </div>
+      <div class="row p-3">
+        <div class="col-md-4">
+          <p>There are three different models available for purchase</p>
+          <p>
+            <select name="select" id="option">
+              <option value="">Pick your hardware</option>
+              <option onclick="changePicture('images/asusg14.jpg')" value="Zephyrus G14">
+                Asus ROG G14: 14" Display/120hz, Ryzen 9, 16GB RAM, 1TB SSD,
+                Radeon RX 6800S
+              </option>
+              <option onclick="changePicture('images/razerblade.jpg')" id="price" value="Razer Blade 14">
+                Razer Blade 14: 14" Display/QHD/165hz, Ryzen 9 5900HX, 16GB RAM,
+                1TB SSD, Nvidia RTX 3080
+              </option>
+              <option onclick="changePicture('images/msige76.jpg')" id="price" value="MSI GE76 Raider" selected="selected">
+                MSI GE76 Raider: 17.3" Display/360hz/1080P, Core i9-11980HK,
+                32GB RAM, 1TB NVMe SSD, Nvidia RTX 3080/option&gt;
+              </option>
+            </select>
+          </p>
+        </div>
+        <div class="col-md-8">&nbsp;</div>
+      </div>
+      <div class="row py-3">
+        <div class="col-md-4">
+          <p><label>Your Name: </label> <input type="text" id="customerName" <="" p="" value="sdfga">
+        </p></div>
+        <div class="col-md-8">&nbsp;</div>
+      </div>
+      <div class="row py-3">
+        <div class="col-md-4">
+          <p>
+            <label>How Many Pairs?</label> <input type="number" id="howMany" value="3">
+          </p>
+        </div>
+        <div class="col-md-8">&nbsp;</div>
+        <p class="small">Disclaimers: All sales final.</p>
+      </div>
+    </div>
+    <p class="p5"><button onclick="buy()">Buy Laptops!</button></p>
+    <div class="card w-25 bg-success rounded-3" id="order">
+      <div class="card-title">Your Order</div>
+      <div class="card-body">
+        <div class="list-group list-group-flush">
+          <div class="list-group-item" id="itemBought">Item:</div>
+          <div class="list-group-item" id="itemName">Name:</div>
+          <div class="list-group-item" id="itemQuantity">&nbsp;</div>
+        </div>
+        <div class="card-footer">
+          Total Cost $<span id="totalCost">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

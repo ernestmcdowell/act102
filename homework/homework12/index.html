@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <title>Laptops</title>
+    <style>
+      #order {
+        visibility: hidden;
+      }
+      #specs {
+          visibility: hidden;
+      }
+    </style>
+        <script>
+        const prices = [
+          {
+            name: "none",
+            price: 0,
+          },
+          {
+            name: "Zephyrus G14",
+            price: 1650.0,
+
+          },
+          {
+            name: "Razer Blade 14",
+            price: 1800.0,
+
+          },
+          {
+            name: "MSI GE76 Raider",
+            price: 3400.0,
+          },
+        ];
+      
+      function buy(me) {
+        let order = document.getElementById("order");
+        order.style.visibility = "visible";
+        
+        //Get the name of the customer
+        let purchaser = document.getElementById("customerName").value;
+        console.log("Purchaser is " + purchaser);
+
+        //put the name of the customer in the #itemName field of the order
+        let nameLocation = document.getElementById("itemName");
+        nameLocation.innerHTML = purchaser;
+
+        //Get the option selected
+        let option = document.getElementById("option").value;
+        console.log("Selected " + option);
+
+        //put the option selected in the #itemBought
+        let itemToBuy = document.getElementById("itemBought");
+        itemToBuy.innerHTML = option;
+
+        //get the quantity selected
+        let howMany = document.getElementById("howMany").value;
+        console.log(howMany);
+
+        //put the quantity into the order
+        let manyLocation = document.getElementById("itemQuantity");
+        manyLocation.innerHTML = howMany;
+
+        //set the price per item
+        let select = document.querySelector("select");
+        let value = select.options[select.selectedIndex].value;
+        let text = select.options[select.selectedIndex].text;
+        let price = prices[select.selectedIndex].price;
+        
+        //set variables for laptop specifications
+        
+        //test log
+        console.log(value, text, price);
+
+        //calculate the total cost and put it in the order
+        let total = price * howMany;
+        let totalLocation = document.getElementById("totalCost");
+        totalLocation.innerHTML = total;
+      }
+
+      function changePicture(url) {
+        let image = document.getElementById("picture");
+        image.src = url;
+
+        let specs = document.getElementById("myTable");
+        specs.style.visibility = "visible";
+
+        let selectItem = document.querySelector("select");
+
+        let plug = document.getElementById("plug");
+        plug.innerHTML = "Price of Selected Item: $" + prices[selectItem.selectedIndex].price;
+
+      }
+      
+      function hide(itemID){
+          let specs = document.getElementById('myTable');
+          specs.style.visibility = "hidden";
+      }
+      function toggleTable(){ 
+      var dropDown = document.getElementById('option');
+      var currentSelection = dropDown.options[dropDown.selectedIndex].value
+      console.log(dropDown, currentSelection)
+
+      if (currentSelection == "Asus Zephyrus G14"){
+        document.getElementById("tr1").style.display = '';
+      }
+      else{
+         document.getElementById('tr1').style.display = 'none';
+      }
+      if (currentSelection == "Razer Blade 14"){
+        document.getElementById('tr2').style.display = '';
+      }
+      else{
+        document.getElementById('tr2').style.display = 'none';
+      }
+      if (currentSelection == "MSI GE76 Raider"){
+        document.getElementById('tr3').style.display = '';
+      }
+      else{
+        document.getElementById('tr3').style.display = 'none';
+      }
+      if (currentSelection == 'pick'){
+        document.getElementById('tr0').style.display = 'none';
+      }
+      else{
+        document.getElementById('tr0').style.display=''
+      }
+
+      
+        
+      
+  } 
+    </script>
+  </head>
+  <body class="m-3 bg-dark text-white ">
+    <h1>Laptops!</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="images/main.png" id="picture" class="w-100 p1" />
+        </div>
+        <div class="col-7">
+          <h2>Laptops for Sale</h2>
+          <div class="container">
+          <table class="table table-dark" id="myTable" style="visibility: hidden">
+            <thead>
+                <tr id="tr0">
+                    <th scope="row">Model</th>
+                    <th scope="row">Display</th>
+                    <th scope="row">CPU</th>
+                    <th scope="row">RAM</th>
+                    <th scope="row">Storage</th>
+                    <th scope="row">Graphics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="tr1" style="display:none">
+                    <td>Asus ROG G14</td>
+                    <td>14" 120Hz 1440x1660</td>
+                    <td>Ryzen 9 6000 series</td>
+                    <td>16GB RAM</td>
+                    <td>1TB SSD</td>
+                    <td>Radeon RX 6800S</td>
+                </tr>
+                <tr id="tr2" style="display:none">
+                    <td>Razer Blade 14</td>
+                    <td>14" 165Hz 1440x1660</td>
+                    <td>Ryzen 9 5900HX</td>
+                    <td>16GB RAM</td>
+                    <td>1TB SSD</td>
+                    <td>Nvidia RTX 3080</td>
+                </tr>
+                <tr id="tr3" style="display:none">
+                    <td>MSI GE76 Raider</td>
+                    <td>17.3" 360Hz 1920x1080</td>
+                    <td>Core i9-11980HK</td>
+                    <td>32GB RAM</td>
+                    <td>1TB NVMe SSD</td>
+                    <td>Nvidia RTX 3080</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div class="col-md-8"><p>&nbsp;</p></div>
+      </div>
+      <div class="row p-3">
+        <div class="col-md-4">
+            <select name="select" id="option">
+              <option onclick="changePicture('images/main.png'),toggleTable('tr0')" value="pick">Pick a Laptop</option>
+              <option onclick="changePicture('images/asusg14.png'), toggleTable('tr1')" value="Asus Zephyrus G14"> Asus ROG G14</option>
+              <option onclick="changePicture('images/razerblade.png'), toggleTable('tr2')" value="Razer Blade 14">  Razer Blade 14 </option>
+              <option onclick="changePicture('images/msige76.png'), toggleTable('tr3')"  value="MSI GE76 Raider">MSI GE76 Raider</option>
+            </select>
+          </p>
+        </div>
+        <div class="col-md-8">&nbsp</div>
+        <p id="plug" >&nbsp;</p>
+      </div>
+      <div class="row py-3">
+        <div class="col-md-4">
+          <p><label>Your Name: </label> <input type="text" id="customerName"></p>
+        </div>
+        <div class="col-md-8">&nbsp;</div>
+      </div>
+      <div class="row py-3">
+        <div class="col-md-4">
+          <p>
+            <label>Amount to purchase: </label> <input type="number" id="howMany" />
+          </p>
+        </div>
+        <div class="col-md-8">&nbsp;</div>
+        <p class="small">Disclaimers: All sales final.</p>
+      </div>
+    </div>
+    <p class="p5"><button onclick="buy()">Buy Laptops!</button></p>
+    <div class="card w-25 bg-success rounded-3" id="order">
+      <div class="card-title">Your Order</div>
+      <div class="card-body">
+        <div class="list-group list-group-flush">
+          <div class="list-group-item" id="itemBought"></div>
+          <div class="list-group-item" id="itemName"></div>
+          <div class="list-group-item" id="itemQuantity">&nbsp;</div>
+        </div>
+        <div class="card-footer">
+          Total Cost $<span id="totalCost">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
